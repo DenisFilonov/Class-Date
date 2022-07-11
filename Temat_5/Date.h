@@ -1,9 +1,9 @@
-#include<iostream>
+#pragma once
+#include <iostream>
 #include<ctime>
 
 using namespace std;
 
-#pragma once
 class Date
 {
 	int year;
@@ -49,5 +49,12 @@ public:
 	//--------- ¿–»‘Ã≈“»◊≈— »≈ Œœ≈–¿“Œ–€ ---------
 	Date operator + (int n)const&;
 	Date operator - (int n)const&;
+	Date operator -- ()const&;
+	Date operator ++ ()const&;
+	Date operator -- (int n)const&;
+	Date operator ++ (int n)const&;
+
+	friend ostream& operator << (ostream& os, const Date& d);
+	friend istream& operator >> (istream& is, Date& d);
 };
 

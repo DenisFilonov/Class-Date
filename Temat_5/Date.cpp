@@ -262,3 +262,56 @@ Date Date::operator-(int n) const&
 	}
 	return tmp;
 }
+
+Date Date::operator--() const&
+{
+	Date tmp = *this;
+	tmp.prevDate();
+	return *this;
+}
+
+Date Date::operator++() const&
+{
+	Date tmp = *this;
+	tmp.nextDate();
+	return *this;
+}
+
+Date Date::operator--(int n) const&
+{
+	Date tmp = *this;
+
+	for (int i = 0; i < n; i++)
+	{
+		tmp.prevDate();
+	}
+	return tmp;
+}
+
+Date Date::operator++(int n) const&
+{
+	Date tmp = *this;
+	for (int i = 0; i < n; i++)
+	{
+		tmp.nextDate();
+	}
+	return tmp;
+}
+
+ostream& operator<<(ostream& os, const Date& d)
+{
+	os << d.day / 10 << d.day % 10 << "." << d.month / 10 << d.month % 10 << "." << d.year;
+	return os;
+}
+
+istream& operator>>(istream& is, Date& d)
+{
+	cout << "Äåíü: ";
+	is >> d.day;
+	cout << "\nÌåñÿö: ";
+	is >> d.day;
+	cout << "\nÃîä: ";
+	is >> d.year;
+
+	return is;
+}
